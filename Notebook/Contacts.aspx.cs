@@ -54,7 +54,7 @@ namespace Notebook
             {
                 ErrorMessage.Text = "Неверный формат номера телефона";
             }
-            else if ((from c in db.Contact where c.Phone == phone select c).Count() != 0)
+            else if ((from c in db.Contact where c.UserId == userid where c.Phone == phone select c).Count() != 0)
             {
                 ErrorMessage.Text = "Этот номер уже добавлен!";
             }
