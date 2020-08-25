@@ -44,7 +44,7 @@
                 </HeaderTemplate>
                 <ItemTemplate>
                     <tr>
-                        <th align="left"><%# DataBinder.Eval(Container.DataItem, "Name") %> <%# DataBinder.Eval(Container.DataItem, "Surname") %> <%# DataBinder.Eval(Container.DataItem, "Patronymic") %></th>
+                        <th align="left"><%# DataBinder.Eval(Container.DataItem, "Surname") %> <%# DataBinder.Eval(Container.DataItem, "Name") %> <%# DataBinder.Eval(Container.DataItem, "Patronymic") %></th>
                         <th align><%# DataBinder.Eval(Container.DataItem, "Phone").ToString().Substring(0, DataBinder.Eval(Container.DataItem, "Phone").ToString().Length - 10) %> <%# String.Format("{0:### ###-##-##}", long.Parse(DataBinder.Eval(Container.DataItem, "Phone").ToString().Remove(0, DataBinder.Eval(Container.DataItem, "Phone").ToString().Length - 10))) %></th>
                         <th><%# DataBinder.Eval(Container.DataItem, "Note") %> </th>
                         <th><a href="/contacts.aspx?method=delete&id=<%# DataBinder.Eval(Container.DataItem, "Id")%>">Удалить</a></a></th>
