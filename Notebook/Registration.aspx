@@ -1,16 +1,16 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Notebook.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="Notebook.Registration" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Вход</title>
+    <title>Регистрация</title>
 </head>
 <body>
-    <form id="loginform" runat="server">
+    <form id="registrationform" runat="server">
         <div>
-            <table>
+                <table>
                 <tr>
                     <th align="right">Логин:</th>
                     <th><asp:TextBox ID="LoginField" runat="server" /></th>
@@ -20,9 +20,13 @@
                     <th><asp:TextBox ID="PasswordField" TextMode="Password" runat="server" /></th>
                 </tr>
                 <tr>
+                    <th align="right">Повторите пароль:</th>
+                    <th><asp:TextBox ID="ConfirmPassword" TextMode="Password" runat="server" /></th>
+                </tr>
+                <tr>
                     <th></th>
                     <th align="right">
-                        <asp:Button ID="LoginButton" OnClick="LoginButton_Click" Width="100" Text="Вход" runat="server" />
+                        <asp:Button ID="RegisterButton" OnClick="RegisterButton_Click" Width="100" Text="Регистрация" runat="server" />
                     </th>
                     <th></th>
                 </tr>
@@ -35,7 +39,7 @@
                 </tr>
                 <tr>
                     <th align="left">
-                        <asp:HyperLink Text="Регистрация..."  runat="server" NavigateUrl="/registration.aspx" />
+                        <asp:HyperLink Text="Вход..."  runat="server" NavigateUrl="/login.aspx" />
                     </th>
                 </tr>
             </table>

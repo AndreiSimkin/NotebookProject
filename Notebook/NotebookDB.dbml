@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NotebookDB" Class="NotebookDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=NotebookDB;Integrated Security=True;Pooling=False" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="NotebookDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.[User]" Member="User">
+    <Type Name="User">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Login" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="User_Token" Member="Token" ThisKey="Id" OtherKey="UserId" Type="Token" />
+      <Association Name="User_Contact" Member="Contact" ThisKey="Id" OtherKey="UserId" Type="Contact" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Token" Member="Token">
+    <Type Name="Token">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_Token" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Contact" Member="Contact">
+    <Type Name="Contact">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="Patronymic" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="User_Contact" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+</Database>

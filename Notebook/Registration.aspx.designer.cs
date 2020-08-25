@@ -11,17 +11,17 @@ namespace Notebook
 {
 
 
-    public partial class Login
+    public partial class Registration
     {
 
         /// <summary>
-        /// loginform элемент управления.
+        /// registrationform элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm loginform;
+        protected global::System.Web.UI.HtmlControls.HtmlForm registrationform;
 
         /// <summary>
         /// LoginField элемент управления.
@@ -42,13 +42,22 @@ namespace Notebook
         protected global::System.Web.UI.WebControls.TextBox PasswordField;
 
         /// <summary>
-        /// LoginButton элемент управления.
+        /// ConfirmPassword элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LoginButton;
+        protected global::System.Web.UI.WebControls.TextBox ConfirmPassword;
+
+        /// <summary>
+        /// RegisterButton элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button RegisterButton;
 
         /// <summary>
         /// ErrorMessage элемент управления.
