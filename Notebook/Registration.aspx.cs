@@ -23,7 +23,15 @@ namespace Notebook
 
         protected void RegisterButton_Click(object sender, EventArgs e)
         {
-            if (PasswordField.Text == ConfirmPassword.Text)
+            if (PasswordField.Text.Length == 0)
+            {
+                ErrorMessage.Text = "Введите пароль!";
+            }
+            else if (PasswordField.Text.Length < 8)
+            {
+                ErrorMessage.Text = "Пороль слишком короткий!";
+            }
+            else if (PasswordField.Text == ConfirmPassword.Text)
             {
                 var user = (from u in db.User where u.Login == LoginField.Text select u);
 
