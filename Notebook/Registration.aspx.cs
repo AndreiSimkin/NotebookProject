@@ -13,6 +13,12 @@ namespace Notebook
         protected void Page_Load(object sender, EventArgs e)
         {
             db = new NotebookDBDataContext();
+            if (!IsPostBack)
+            {
+                if (Request.Cookies["Token"] != null && Request.Cookies["Token"].Value != null)
+                    if ((from t in db.Token where t.Id.ToString() == Request.Cookies["Token"].Value select t).Count() > 0)
+                        Response.Redirect("/contacts.aspx");
+            }
             Unload += Registration_Unload;
         }
 
